@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>HTML5</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+		.reveal table {
+			margin: auto;
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 30px
+		}
+		.reveal table th, .reveal table td {
+			text-align: left;
+			padding: 0.2em;
+			border-bottom: 1px solid;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide  data-transition="slide" data-background="#8c4738" data-background-transition="slide"-->
+			<div class="slides">
+				<section>
+					<section data-background="#f16528" style="margin-top: -40px;">
+						<h1>HTML<span style="">5</span></h1>
+						<img src="img/html5_logo_lrg.png" alt="" style="border: none; background: none; box-shadow: none; margin: 0; margin-top: -40px;"/>
+						<h2>Hypertext Markup Language Version 5</h2>
+						<p>
+							<small>Created by <a href="#">hmchung</a> / <a href="#">@tma.com.vn</a></small>
+						</p>
+					</section>
+					<section id="themes">
+							<h2>Themes</h2>
+							<p>
+								<a href="?#/themes">Default</a> -
+								<a href="?theme=sky#/themes">Sky</a> -
+								<a href="?theme=beige#/themes">Beige</a> -
+								<a href="?theme=simple#/themes">Simple</a> -
+								<a href="?theme=serif#/themes">Serif</a> -
+								<a href="?theme=night#/themes">Night</a> <br>
+								<a href="?theme=moon#/themes">Moon</a> -
+								<a href="?theme=solarized#/themes">Solarized</a>
+							</p>
+							<p>
+								<!--<small>
+									* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+								</small>-->
+							</p>
+					</section>
+					<section id="transitions">
+							<h2>Transition Styles</h2>
+							<p>
+								<a href="?transition=cube#/transitions">Cube</a> -
+								<a href="?transition=page#/transitions">Page</a> -
+								<a href="?transition=concave#/transitions">Concave</a> -
+								<a href="?transition=zoom#/transitions">Zoom</a> -
+								<a href="?transition=linear#/transitions">Linear</a> -
+								<a href="?transition=fade#/transitions">Fade</a> -
+								<a href="?transition=none#/transitions">None</a> -
+								<a href="?#/transitions">Default</a>
+							</p>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Rough Timeline of Web Technologies</h2>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1991</td>
+								<td>HTML</td>
+							</tr>
+							<tr>
+								<td>1994</td>
+								<td>HTML 2</td>
+							</tr>
+							<tr>
+								<td>1996</td>
+								<td>CSS + JavaScript</td>
+							</tr>
+							<tr>
+								<td>1997</td>
+								<td>HTML 4</td>
+							</tr>
+							<tr>
+								<td>1998</td>
+								<td>CSS2</td>
+							</tr>
+							<tr>
+								<td>2000</td>
+								<td>XHTML 1</td>
+							</tr>
+							<tr>
+								<td>2002</td>
+								<td>Tableless Web Design</td>
+							</tr>
+							<tr>
+								<td>2005</td>
+								<td>AJAX</td>
+							</tr>
+							<tr>
+								<td>2009</td>
+								<td>HTML5 + CSS3</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			
+				<section>
+					<section>
+						<h2>What is HTML5?</h2>
+						<ol>
+							<li>It’s open source.</li>
+							<li>Standard technology (WHATWG + W3C).</li>
+							<li>Successor of HTML v4.01 & XHTML v1.0</li>
+						</ol>
+
+						<aside class="notes">
+							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						</aside>
+					</section>
+					
+					<section>
+						<h1 style="display: inline;">HTML5</h1>
+						<h2 style="display: inline;">~=</h2>
+						<h1 class="fragment visible" data-fragment-index="0" style="display: inline;">HTML</h1>
+						<h1 class="fragment visible" data-fragment-index="1" style="display: inline;"> + CSS</h1>
+						<h1 class="fragment visible" data-fragment-index="2" style="display: inline;"> + JS</h1>
+				</section>
+				</section>
+
+				
+				
+				<!-- Example of nested vertical slides -->
+				
+				
+				<section>
+					<section>
+						<h2 style="margin-top: -65px">Key Features of HTML5</h2>
+						<img src="img/html5features.jpg" alt="" />
+					</section>
+					<section>
+						<h2 style="margin-top: -65px">Feature tag</h2>
+						<img src="img/tagcloud.jpg" alt="" />
+					</section>
+					<section>
+						<h2 style="margin-top: -65px">Browsers</h2>
+						<img src="img/browsers.png" alt="" />
+					</section>
+				</section>
+
+				<section>
+					<h2>Today, we will cover ...</h2>
+					<ol>
+						<li>Offline / Storage</li>
+						<li>Realtime / Communication</li>
+						<li>File / Hardware Access</li>
+						<li>Semantics & Markup</li>
+						<li>Graphucs / Multimedia</li>
+						<li>CSS3</li>
+						<li>Nuts & Bolts</li>
+					</ol>
+				</section>
+
+				<section data-background="#B5533C">
+					<section>
+						<h2>Offline / Storage</h2>
+						<img src="img/How-To-Use-HTML5-Offline-Storage-In-Your-Website.png" alt="" />
+					</section>
+					<section data-state="customevent">
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+// use localStorage for persistent storage
+// use sessionStorage for per tab storage
+saveButton.addEventListener('click', function () {
+  window.localStorage.setItem('value', area.value);
+  window.localStorage.setItem('timestamp', (new Date()).getTime());
+}, false);
+textarea.value = window.localStorage.getItem('value');
+
+
+					</code></pre>
+					</section>
+					
+					
+						
+					</section>
+				</section>
+
+				<section>
+					<h2>HTML Compiler</h2>
+					<p>
+					Angular's HTML compiler allows the developer to teach the browser new HTML syntax. The compiler allows you to attach behavior to any HTML element or attribute and even create new HTML elements or attributes with custom behavior. Angular calls these behavior extensions directives.
+					</p>
+				</section>
+				
+				<section >
+					<section data-markdown>
+						<script type="text/template">
+							## Data-binding
+							<p>Data-binding in Angular apps is the automatic synchronization of data between the model and view components.</p>
+							<p>The way that Angular implements data-binding lets you treat the model as the single-source-of-truth in your application.</p>
+						</script>
+					</section>
+					<section>
+						<h2>Data-binding</h2>
+							<span class="right" style="float:left">in Classical Template Systems<br/>
+								<img width="400" height="250" class="right" src="img/One_Way_Data_Binding.png">
+							</span>
+							
+							<span class="right" style="float:right">in Angular Templates<br/>
+								<img width="400" height="250" class="right" src="img/Two_Way_Data_Binding.png">
+							</span>
+							
+						
+					</section>
+				</section>
+				
+				<!--<ul>
+					<li>AngularJS controllers control the data of AngularJS applications.</li>
+					<li>AngularJS controllers are regular JavaScript Objects.</li>
+				</ul>-->
+				<section data-state="customevent">
+					<section data-markdown>
+						<script type="text/template">
+							## Controller
+							<p>Controllers A controller is a JavaScript constructor function that is used to augment the Angular Scope. AngularJS's developer guide (http://docs.angularjs.org/guide)</p>
+							<!--<p>In AngularJS, everything has an associated scope. Scopes are organized in a hierarchy. There is a $rootScope object, the parent of all the scopes of the AngularJS application, and there are scopes created by some directives.</p>-->
+							
+						</script>
+						
+					</section>
+					<section data-state="customevent">
+					<h2>Controller</h2>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="GreetingController">
+        <input type="text" data-ng-model="greeting" />
+        {{greeting}}
+    </div>
+</div>
+
+<script>
+  (function(){
+    var myApp = angular.module('myApp',[]);
+
+    myApp.controller('GreetingController', ['$scope', function($scope) {
+      $scope.greeting = 'Hola!';
+    }]);
+  })();
+</script>
+<script src="../js/lib/angular.min.js"></script>
+
+
+					</code></pre>
+					</section>
+					
+					
+				</section>
+				
+			
+
+				<section data-state="customevent">
+					<section>
+						<h2>Directives</h2>
+						<ul>
+							<li>The directives can be placed in element names, attributes, class names, as well ascomments. </li>
+							<li>Directives are a way to teach HTML new tricks.</li>
+							<li>A directive is just a function which executes when the compiler encounters it in the DOM.</li>
+						</ul>
+					</section>
+					<section data-state="customevent">
+					<h2>Directives</h2>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<div data-ng-app="myApp">
+    <div ng-controller="Controller">
+        <div my-customer></div>
+    </div>
+</div>
+
+<script>
+    angular.module('myApp', [])
+    .controller('Controller', ['$scope', function($scope) {
+      $scope.customer = {
+        name: 'Naomi',
+        address: '1600 Amphitheatre'
+      };
+    }])
+    .directive('myCustomer', function() {
+      return {
+        template: 'Name: {{customer.name}} Address: {{customer.address}}'
+      };
+    });
+</script>
+<script src="../js/lib/angular.min.js"></script>
+
+
+					</code></pre>
+					</section>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Expression</h2>
+					<ul>
+						<li>Angular expressions are JavaScript-like code snippets that are usually placed in bindings such as <code>{{ expression }}</code>.</li>
+					</ul>
+					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+<div ng-app="" ng-init="quantity=1;cost=5">
+
+	<p>Total in dollar: {{ quantity * cost }}</p>
+	
+</div>
+					</code></pre>
+				</section>
+				
+				</section>
+				
+				
+				<section data-state="customevent">
+					<section data-markdown>
+						<script type="text/template">
+							## Services
+							<p>Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.</p>
+							<!--<p>In AngularJS, everything has an associated scope. Scopes are organized in a hierarchy. There is a $rootScope object, the parent of all the scopes of the AngularJS application, and there are scopes created by some directives.</p>-->
+							
+						</script>
+						
+					</section>
+					<section data-state="customevent">
+					<h2>Services</h2>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+<div data-ng-app="myServiceModule">
+    <div data-ng-controller="GreetingController">
+        {{callNotify()}}
+    </div>
+</div>
+
+<script>
+angular.
+ module('myServiceModule', []).
+  controller('MyController', ['$scope','notify', function ($scope, notify) {
+    $scope.callNotify = function(msg) {
+      notify(msg);
+    };
+  }]).
+ factory('notify', ['$window', function(win) {
+    var msgs = [];
+    return function(msg) {
+      msgs.push(msg);
+      win.alert(msgs);
+      msgs = [];
+    };
+  }]);
+</script>
+
+
+					</code></pre>
+					</section>
+					
+					
+				</section>
+				
+			
+				<section>
+					<section data-state="customevent">
+						<h2>Scope</h2>
+						<p>
+							Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of theapplication.
+						</p>
+					</section>
+					<section data-state="customevent">
+						<h2>Scope Hierarchies</h2>
+						<p>Each Angular application has exactly one root scope, but may have several child scopes.
+							<img src="img/concepts-scope.png"></img>
+						</p>
+					</section>
+				</section>
+
+				
+				
+				
+				<section data-markdown>
+					<script type="text/template">
+						## Module
+						<p>
+							You can think of a module as a container for the different parts of your app – controllers, services, ﬁlters, directives, etc.
+						</p>
+						<!--<ul>
+							<li>Modules define your applications.</li>
+							<li>All your controllers should belong to a module.</li>
+							<li>Modules keep the global namespace clean.</li>
+						</ul>-->
+						```
+						// declare a modulevar 
+						myAppModule = angular.module(myApp, [--here goes the dependent Modules--]);
+						```
+					</script>
+				</section>
+				
+				<section data-state="customevent">
+					<h2>Routing</h2>
+					<p class="fragment current-visible">
+						Is used for deep-linking URLs to controllers and views (HTML partials). It watches <code>$location.url()</code> andtries to map the path to an existing route definition.
+					</p>
+					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: -120px;">
+angular.module('myApp', [])
+.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/newcomer',{
+        templateUrl: 'views/newcomer/newcomer.html',
+        controller: 'newcomerCtrl'
+      })
+      .when('/newcomer/:id',{
+        templateUrl: 'views/report-table/report-table.html',
+        controller: 'reportCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  }])
+					</code></pre>
+				</section>
+				
+				<section>
+					<section data-state="customevent">
+						<h2>Forms</h2>
+						<p>
+							Controls (input, select, textarea) are ways for a user to enter data. A Form is a collection of controls for the purpose of grouping related controls together.
+						</p>
+					</section>
+					<!--<section data-state="customevent">
+						<h2>Scope Hierarchies</h2>
+						<p>Each Angular application has exactly one root scope, but may have several child scopes.
+							<img src="img/concepts-scope.png"></img>
+						</p>
+					</section>-->
+				</section>
+				
+				<section data-state="customevent">
+					<h2>Dependency Injection</h2>
+					<p>
+						Dependency Injection (DI) is a software design pattern that deals with how code gets holdof its dependencies.
+					</p>
+					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+<div ng-app="myApp" ng-controller="myCtrl">
+  {{ firstName + " " + lastName }}
+</div>
+
+<script>
+  (function(){
+    'use strict';
+    angular.module('myApp',[]);
+
+    .controller('myCtrl', ['$scope', function($scope) {
+      $scope.firstName = "John";
+      $scope.lastName = "Doe";
+    }]);
+  })();
+</script>
+
+<script src="..lib/angular.min.js"></script>
+
+
+					</code></pre>
+				</section>
+				
+				<section data-state="customevent">
+				<section>
+					<h2>Filters</h2>
+					<p>
+						AngularJS filters can be used to transform data:
+					</p>
+					<table class="reference">
+<tbody><tr>
+	<th style="width:20%">Filter</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td>currency</td>
+	<td>Format a number to a currency format.</td>
+</tr>
+<tr>
+	<td>filter</td>
+	<td>Select a subset of items from an array.</td>
+</tr>
+<tr>
+	<td>lowercase</td>
+	<td>Format a string to lower case.</td>
+</tr>
+<tr>
+	<td>orderBy</td>
+	<td>Orders an array by an expression.</td>
+</tr>
+<tr>
+	<td>uppercase</td>
+	<td>Format a string to upper case.</td>
+</tr>
+</tbody></table>
+
+					</section>
+					<section data-background-transition="slide">
+					<h2>Filters</h2>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+<div ng-app="" ng-controller="namesController">
+    <p><input type="text" ng-model="name"></p>
+    <ul>
+        <li ng-repeat="x in names | filter:name | orderBy:'country'">
+            {{ (x.name | uppercase) + ', ' + x.country }}
+        </li>
+    </ul>
+</div>
+
+<script>
+  function namesController($scope) {
+    $scope.names = [
+      {name:'Jani',country:'Norway'},
+      {name:'Hege',country:'Sweden'},
+      {name:'Kai',country:'Denmark'}
+    ];
+  }
+</script>
+
+
+					</code></pre>
+					</section>
+				</section>
+				
+				<!--
+				<section>
+					<section data-background="#007777">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Repeated Image Backgrounds</h2>
+						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+				</section>
+
+				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+					<h2>Resources</h2>
+					<p>
+						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h2>Background Transition Override</h2>
+					<p>
+						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-current-blue">highlight-current-blue</p>
+					</section>
+				</section>
+
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>-->
+
+				<section>
+					<h2>Videos</h2>
+					<ul >
+						<li><a href="http://www.egghead.io/">http://www.egghead.io/</a></li>
+						<li><a href="https://www.youtube.com/user/angularjs">AngularJS YouTube Page</a></li>
+						<li><a href="https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be">Introduction to Angular.js in 50 Examples</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Code Organization</h2>
+					<ul >
+						<li><a href="http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript">Code Organization in Large AngularJS and JavaScript Applications</a></li>
+						<li><a href="http://weblogs.asp.net/dwahlin/archive/2013/12/01/structuring-angularjs-code.aspx">Structuring AngularJS Code</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Help</h2>
+					<ul >
+						<li>StackOverflow: <a href="">http://stackoverflow.com/questions/tagged/angularjs</a></li>
+						<li>AngularJS Mailing List (Google Groups): <a href="">http://groups.google.com/group/angular</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Courses</h2>
+					<ul >
+						<li>Code School Shaping Up with Angular.js: <a href="">https://www.codeschool.com/courses/shaping-up-with-angular-js</a></li>
+						<li>Thinkster.io - A better way to learn AngularJS: <a href="">http://www.thinkster.io/</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Development Environment</h2>
+					<ul style="float:left">
+						<li><a href="http://nodejs.org/">NodeJS</a>(server)</li>
+						<li><a href="http://bower.io/">Bower</a></li>
+						<li><a href="http://yeoman.io/">Yaomen</a></li>
+						<li><a href="http://gruntjs.com/">GruntJS</a></li>
+						<li><a href="https://angularjs.org/">AngularJS</a></li>
+						<li><a href="http://learnboost.github.io/stylus/">Stylus</a></li>
+					</ul>
+					<ul style="float:right" start="10">
+						<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+						<li><a href="http://getbootstrap.com/">Karma</a>(unit test runnter)</li>
+						<li><a href="http://getbootstrap.com/">Internet browsers</a></li>
+						<li><a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en">Chrome add-on: batarang</a></li>
+						<li><a href="http://www.jetbrains.com/webstorm/">Webstorm</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY HMCHUNG / TMA</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
