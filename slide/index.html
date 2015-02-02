@@ -14,9 +14,12 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-
+		
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -46,6 +49,9 @@
 			padding: 0.2em;
 			border-bottom: 1px solid;
 		}
+		.reveal pre {
+			width: 100%;
+			}
 		</style>
 	</head>
 
@@ -55,6 +61,8 @@
 
 			<!-- Any section element inside of this container is displayed as a slide  data-transition="slide" data-background="#8c4738" data-background-transition="slide"-->
 			<div class="slides">
+			
+				<!-- Home -->
 				<section>
 					<section data-background="#f16528" style="margin-top: -40px;">
 						<h1>HTML<span style="">5</span></h1>
@@ -97,6 +105,7 @@
 					</section>
 				</section>
 				
+				<!-- Rough Timeline of Web Technologies -->
 				<section>
 					<h2>Rough Timeline of Web Technologies</h2>
 					<table>
@@ -146,8 +155,9 @@
 						</tbody>
 					</table>
 				</section>
-			
-				<section>
+				
+				<!-- What is HTML5? -->
+				<section data-background="#5C4155" data-color="#000000">
 					<section>
 						<h2>What is HTML5?</h2>
 						<ol>
@@ -170,11 +180,7 @@
 				</section>
 				</section>
 
-				
-				
-				<!-- Example of nested vertical slides -->
-				
-				
+				<!-- Key Features of HTML5 -->
 				<section>
 					<section>
 						<h2 style="margin-top: -65px">Key Features of HTML5</h2>
@@ -190,7 +196,8 @@
 					</section>
 				</section>
 
-				<section>
+				<!-- Today, we will cover -->
+				<section data-background="#18BD9B">
 					<h2>Today, we will cover ...</h2>
 					<ol>
 						<li>Offline / Storage</li>
@@ -203,113 +210,334 @@
 					</ol>
 				</section>
 
+				<!-- Offline / Storage -->
 				<section data-background="#B5533C">
 					<section>
 						<h2>Offline / Storage</h2>
 						<img src="img/How-To-Use-HTML5-Offline-Storage-In-Your-Website.png" alt="" />
 					</section>
+					
 					<section data-state="customevent">
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<h2>Web Storage</h2>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+//LocalStorage Methods: 
+//getItem: Retrieves the current value associated with the key.
+	window.localStorage.getItem(key)
+//setItem: Set a key/value pair
+	window.localStorage.setItem(key, value);
+//removeItem: Deletes a key/value pair from the DOM Storage collection
+	window.localStorage.removeItem(key)
+//clear: Removes all key/value pairs from the DOM Storage area.
+	window.localStorage.clear();
+//Key: Retrieves the key at the specified index in the collection
+	window.localStorage.key(n)
+//length: Retrieves the length of the key/value list
+ constructor: Returns a reference to the contructor
+	window.localStorage.contructor !== Storage
+					</code></pre>
+					
+					<div>
+						<textarea style=" height: 100px; font-size: 30px;" type="text" class="form-control" id="ta-area" placeholder="Type your text here..."></textarea>
+					</div>
+					<div>
+						<button class="btn btn-default" id="saveButton">Save</button>
+					</div>
+					<script type="text/javascript">
+						var saveButton = document.querySelector('#saveButton');
+						var area = document.querySelector('#ta-area');
+						saveButton.addEventListener('click', function(){
+							window.localStorage.setItem('value', area.value);
+							window.localStorage.setItem('timestamp', (new Date()).getTime());
+						})
+					</script>
+					
+					</section>
+					
+					<section data-state="customevent">
+						<h2>Web SQL Database</h2>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var db = window.openDatabase("DBName", "1.0", "description", 5*1024*1024); //5MB
+db.transaction(function(tx) {
+  tx.executeSql("SELECT * FROM test", [], successCallback, errorCallback);
+});
+						</code></pre>
+					
+					<div class="center" id="websqldb-example">
+						<textarea style=" height: 100px; font-size: 30px;" type="text" class="form-control" id="text-websqldb" placeholder="Type your text here..."></textarea>
+						<div>
+							<button type="button" class="btn btn-default" onclick="webSqlSample.newRecord()">New to do item</button>
+							<button type="button" class="btn btn-default" onclick="webSqlSample.createTable()">Create table</button>
+							<button type="button" class="btn btn-default" onclick="webSqlSample.dropTable()">Drop table</button>
+						</div>
+						
+						<div>
+							<ul class="record-list" id="db-results"></ul>
+						</div>
+						
+						<div id="db-log"></div>
+						
+						<script defer="">
+						var webSqlSample = (function() {
+						  var db;
+						  var log = document.getElementById('db-log');
+						  if (window.openDatabase) {
+							db = openDatabase("DBTest", "1.0", "HTML5 Database API example", 200000);
+							showRecords();
+						  }
+						  document.getElementById('db-results').addEventListener('click', function(e) { e.preventDefault(); }, false);
 
-// use localStorage for persistent storage
-// use sessionStorage for per tab storage
-saveButton.addEventListener('click', function () {
-  window.localStorage.setItem('value', area.value);
-  window.localStorage.setItem('timestamp', (new Date()).getTime());
+						  function onError(tx, error) {
+							log.innerHTML = '<p class="error">Error: ' + error.message + '</p>';
+						  }
+
+						  // select all records and display them
+						  function showRecords() {
+							document.getElementById('db-results').innerHTML = '';
+							db.transaction(function(tx) {
+							  tx.executeSql("SELECT * FROM Employee", [], function(tx, result) {
+								for (var i = 0, item = null; i < result.rows.length; i++) {
+								  item = result.rows.item(i);
+								  document.getElementById('db-results').innerHTML +=
+									  '<li><span contenteditable="true" onkeyup="webSqlSample.updateRecord('+item['id']+', this)">'+
+									  item['text'] + '</span> <a href="#" onclick="webSqlSample.deleteRecord('+item['id']+')">[Delete]</a></li>';
+								}
+							  });
+							});
+						  }
+
+						  function createTable() {
+							db.transaction(function(tx) {
+							  tx.executeSql("CREATE TABLE Employee (id REAL UNIQUE, text TEXT)", [],
+								  function(tx) {  log.innerHTML = '<p>"Employee" created!</p>' },
+								  onError);
+							});
+						  }
+
+						  // add record with random values
+						  function newRecord() {
+							var num = Math.round(Math.random() * 10000); // random data
+							db.transaction(function(tx) {
+							  tx.executeSql("INSERT INTO Employee (id, text) VALUES (?, ?)", [num, document.querySelector('#text-websqldb').value],
+								  function(tx, result) {
+									log.innerHTML = '';
+									showRecords();
+								  },
+								  onError);
+							});
+						  }
+
+						  function updateRecord(id, textEl) {
+							db.transaction(function(tx) {
+							  tx.executeSql("UPDATE Employee SET text = ? WHERE id = ?", [textEl.innerHTML, id], null, onError);
+							});
+						  }
+
+						  function deleteRecord(id) {
+							db.transaction(function(tx) {
+							  tx.executeSql("DELETE FROM Employee WHERE id=?", [id],
+								  function(tx, result) { showRecords() },
+								  onError);
+							});
+						  }
+
+						  // delete table from db
+						  function dropTable() {
+							db.transaction(function(tx) {
+							  tx.executeSql("DROP TABLE Employee", [],
+								  function(tx) { showRecords() },
+								  onError);
+							});
+						  }
+
+						  return {
+							newRecord: newRecord,
+							createTable: createTable,
+							updateRecord: updateRecord,
+							deleteRecord: deleteRecord,
+							dropTable: dropTable
+						  }
+						})();
+					  </script>
+						
+					  </div>
+					
+					</section>
+					
+					<section data-state="customevent">
+						<h2>IndexedDB</h2>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var idbRequest = window.indexedDB.open('Database Name');
+idbRequest.onsuccess = function(event) {
+  var db = event.srcElement.result;
+  var transaction = db.transaction([], IDBTransaction.READ_ONLY);
+  var curRequest = transaction.objectStore('ObjectStore Name').openCursor();
+  curRequest.onsuccess = ...;
+};
+						</code></pre>
+					
+					<div class="center" id="indexeddb-example">
+						<input type="text" class="form-control" placeholder="key" id="idb-key" size="10" style=" height: 50px; font-size: 20px;"> 
+						<input type="text" class="form-control" placeholder="value" id="idb-value" size="15" style=" height: 50px; font-size: 20px;">
+						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbSet()">Set</button>
+						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbCreate()">Create objectStore</button>
+						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbRemove()">Remove objectStore</button>
+						<div id="idb-log"></div>
+						<div class="record-list" id="idb-results-wrapper"></div>
+					  </div>
+					</section>
+					
+					<section data-state="customevent">
+						<h2>Application Cache</h2>
+						<pre><span>index.html</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+< html manifest="cache.appcache" >
+						</code></pre>
+						
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+window.applicationCache.addEventListener('updateready', function(e) {
+  if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+    window.applicationCache.swapCache();
+    if (confirm('A new version of this site is available. Load it?')) {
+      window.location.reload();
+    }
+  }
 }, false);
-textarea.value = window.localStorage.getItem('value');
+						</code></pre>
+						
+						<pre><span>cache.appcache:</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+CACHE MANIFEST
+# version 1.0.0
 
+CACHE:
+/html5/src/logic.js
+/html5/src/style.css
+/html5/src/background.png
 
-					</code></pre>
+NETWORK:
+*			</code></pre>
+					<span>Turn off your internet connection and refresh this page!  </span>
 					</section>
 					
-					
+					<section>
+					<h2>Quota API</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+// Request Status
+webkitStorageInfo.queryUsageAndQuota(webkitStorageInfo.TEMPORARY, function(used, remaining) {
+    console.log("Used quota: " + used + ", remaining quota: " + remaining);
+  }
+);
+
+// Request Quota (only for File System API)
+webkitStorageInfo.requestQuota(webkitStorageInfo.PERSISTENT, 10 * 1024 * 1024, function(used) {
+    console.log("Used quota: " + used + ", remaining quota: " + remaining);
+  }
+);
+						</code></pre>
 						
 					</section>
+					
 				</section>
 
-				<section>
-					<h2>HTML Compiler</h2>
-					<p>
-					Angular's HTML compiler allows the developer to teach the browser new HTML syntax. The compiler allows you to attach behavior to any HTML element or attribute and even create new HTML elements or attributes with custom behavior. Angular calls these behavior extensions directives.
-					</p>
 				</section>
 				
+				<!-- Realtime / Communication -->
 				<section >
-					<section data-markdown>
-						<script type="text/template">
-							## Data-binding
-							<p>Data-binding in Angular apps is the automatic synchronization of data between the model and view components.</p>
-							<p>The way that Angular implements data-binding lets you treat the model as the single-source-of-truth in your application.</p>
-						</script>
-					</section>
+					<!-- Realtime / Communication -->
 					<section>
-						<h2>Data-binding</h2>
-							<span class="right" style="float:left">in Classical Template Systems<br/>
-								<img width="400" height="250" class="right" src="img/One_Way_Data_Binding.png">
-							</span>
-							
-							<span class="right" style="float:right">in Angular Templates<br/>
-								<img width="400" height="250" class="right" src="img/Two_Way_Data_Binding.png">
-							</span>
-							
-						
+						<h2>Realtime / Communication</h2>
+						<img src="img/html5-connectivity.jpg" alt="" />
 					</section>
-				</section>
-				
-				<!--<ul>
-					<li>AngularJS controllers control the data of AngularJS applications.</li>
-					<li>AngularJS controllers are regular JavaScript Objects.</li>
-				</ul>-->
-				<section data-state="customevent">
-					<section data-markdown>
-						<script type="text/template">
-							## Controller
-							<p>Controllers A controller is a JavaScript constructor function that is used to augment the Angular Scope. AngularJS's developer guide (http://docs.angularjs.org/guide)</p>
-							<!--<p>In AngularJS, everything has an associated scope. Scopes are organized in a hierarchy. There is a $rootScope object, the parent of all the scopes of the AngularJS application, and there are scopes created by some directives.</p>-->
-							
-						</script>
-						
-					</section>
-					<section data-state="customevent">
-					<h2>Controller</h2>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-<div data-ng-app="myApp">
-    <div data-ng-controller="GreetingController">
-        <input type="text" data-ng-model="greeting" />
-        {{greeting}}
-    </div>
-</div>
-
-<script>
-  (function(){
-    var myApp = angular.module('myApp',[]);
-
-    myApp.controller('GreetingController', ['$scope', function($scope) {
-      $scope.greeting = 'Hola!';
-    }]);
-  })();
-</script>
-<script src="../js/lib/angular.min.js"></script>
-
-
+					
+					<!-- Web Workers -->
+					<section>
+						<h2>Web Workers</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+var worker = new Worker('task.js');
+worker.onmessage = function(event) { alert(event.data); };
+worker.postMessage('data');
+					</code></pre>	
+					
+						<pre><span>task.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+self.onmessage = function(event) {
+  // Do some work.
+  self.postMessage("recv'd: " + event.data);
+};
 					</code></pre>
 					</section>
 					
+					<!-- WebSocket -->
+					<section>
+						<h2>WebSocket</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+var socket = new WebSocket('ws://html5rocks.websocket.org/echo');
+socket.onopen = function(event) {
+  socket.send('Hello, WebSocket');
+};
+socket.onmessage = function(event) { alert(event.data); }
+socket.onclose = function(event) { alert('closed'); }
+					</code></pre>	
+					
+					</section>
+					
+					<!-- Notifications -->
+					<section>
+						<h2>Notifications</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+if (window.webkitNotifications.checkPermission() == 0) {
+  // you can pass any url as a parameter
+  window.webkitNotifications.createNotification(tweet.picture, tweet.title,
+      tweet.text).show();
+} else {
+  window.webkitNotifications.requestPermission();
+}
+					</code></pre>	
+					
+					</section>
 					
 				</section>
 				
-			
-
+				<!-- File / Hardware Access -->				
+				<section data-state="customevent">
+					<!-- File / Hardware Access -->
+					<section>
+						<h2>File / Hardware Access</h2>
+						<img src="img/html5-device.jpg" alt="" />
+					</section>
+					
+					<!-- Native Drag & Drop -->
+					<section>
+						<h2>Native Drag & Drop</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+document.addEventListener('dragstart', function(event) {
+  event.dataTransfer.setData('text', 'Customized text');
+  event.dataTransfer.effectAllowed = 'copy';
+}, false);
+					</code></pre>	
+					
+					</section>
+					
+					<!-- Geolocation -->
+					<section>
+						<h2>Geolocation</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latLng = new google.maps.LatLng(
+        position.coords.latitude, position.coords.longitude);
+    var marker = new google.maps.Marker({position: latLng, map: map});
+    map.setCenter(latLng);
+  }, errorHandler);
+}
+					</code></pre>	
+					
+					</section>
+				
+				</section>
+				
+				<!-- Semantics & Markup -->
 				<section data-state="customevent">
 					<section>
-						<h2>Directives</h2>
-						<ul>
-							<li>The directives can be placed in element names, attributes, class names, as well ascomments. </li>
-							<li>Directives are a way to teach HTML new tricks.</li>
-							<li>A directive is just a function which executes when the compiler encounters it in the DOM.</li>
-						</ul>
+						<h2>Semantics & Markup</h2>
+						<img src="img/html5-code2.jpg" alt="" />
 					</section>
 					<section data-state="customevent">
 					<h2>Directives</h2>
