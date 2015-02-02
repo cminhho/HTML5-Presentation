@@ -177,7 +177,7 @@
 						<h1 class="fragment visible" data-fragment-index="0" style="display: inline;">HTML</h1>
 						<h1 class="fragment visible" data-fragment-index="1" style="display: inline;"> + CSS</h1>
 						<h1 class="fragment visible" data-fragment-index="2" style="display: inline;"> + JS</h1>
-				</section>
+					</section>
 				</section>
 
 				<!-- Key Features of HTML5 -->
@@ -534,53 +534,105 @@ if (navigator.geolocation) {
 				</section>
 				
 				<!-- Semantics & Markup -->
-				<section data-state="customevent">
+				<section>
+					<!-- Semantics & Marku -->
 					<section>
 						<h2>Semantics & Markup</h2>
 						<img src="img/html5-code2.jpg" alt="" />
 					</section>
-					<section data-state="customevent">
-					<h2>Directives</h2>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-<div data-ng-app="myApp">
-    <div ng-controller="Controller">
-        <div my-customer></div>
-    </div>
-</div>
-
-<script>
-    angular.module('myApp', [])
-    .controller('Controller', ['$scope', function($scope) {
-      $scope.customer = {
-        name: 'Naomi',
-        address: '1600 Amphitheatre'
-      };
-    }])
-    .directive('myCustomer', function() {
-      return {
-        template: 'Name: {{customer.name}} Address: {{customer.address}}'
-      };
-    });
-</script>
-<script src="../js/lib/angular.min.js"></script>
-
-
-					</code></pre>
+					
+					<!-- Better semantic tags -->
+					<section>
+					<h2>Better semantic tags</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<p>HTML</p>
+								<img src="img/website-code-html4-unoptimized.jpg" alt="" />
+							</div>
+							<div class="col-md-6">
+								<p>HTML5</p>
+								<img src="img/website-code-html5-optimized.jpg" alt="" />
+							</div>
+						</div>
+						
 					</section>
 				</section>
 
-				<section data-state="customevent">
-					<h2>Expression</h2>
-					<ul>
-						<li>Angular expressions are JavaScript-like code snippets that are usually placed in bindings such as <code>{{ expression }}</code>.</li>
-					</ul>
-					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-<div ng-app="" ng-init="quantity=1;cost=5">
+				<!-- Graphics / Multimedia -->
+				<section>
+					<!-- Graphics / Multimedia -->
+					<section>
+						<h2>Graphics / Multimedia</h2>
+						<img src="img/html5-multimedia.jpg" alt="" />
+					</section>
+					
+					<!-- Audio + Video -->
+					<section>
+						<h2>Audio + Video</h2>
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+<audio id="audio" src="sound.mp3" controls></audio>
+document.getElementById("audio").muted = false;
+						</code></pre>	
+						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+<video id="video" src="movie.webm" autoplay controls></video>
+document.getElementById("video").play();
+						</code></pre>
+					
+					<div id="video-column" class="center">
+					  
+					  <div class="row">
+						<div class="col-md-12">
+							<div class="media-buttons col-md-6">
+								<input type="button" class="form-control" id="reflection-button" onclick="addReflection()" value="Add CSS reflection to video">
+								<input type="button" class="form-control" id="play-button" onclick="PlayVideo()" ;="" value="Play">
+								<input type="button" class="form-control" id="pause-button" onclick="PauseVideo()" ;="" value="Pause" disabled="">
+								<input type="button" class="form-control" id="mute" onclick="MuteUnMute()" value="Mute">
+							 </div>
+							 <div class="col-md-6">
+								<video width="390" id="clip" controls="">
+								<source src="img/chrome_japan.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+								<source src="img/chrome_japan.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+								<source src="img/chrome_japan.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;">
+								Your browser does not support the video tag
+							  </video>
+							 </div>
+						</div>
+					  </div>
+					</div>
+					
+					<script>
+            var videoClip = document.getElementById('clip');
+            var playButton = document.getElementById('play-button');
+            var pauseButton = document.getElementById('pause-button');
 
-	<p>Total in dollar: {{ quantity * cost }}</p>
-	
-</div>
-					</code></pre>
+            function PlayVideo() {
+              videoClip.play();
+              playButton.disabled = true;
+              pauseButton.disabled = false;
+            }
+
+            function PauseVideo() {
+              videoClip.pause();
+              playButton.disabled = false;
+              pauseButton.disabled = true;
+            }
+
+            function MuteUnMute() {
+              document.getElementById('mute').value = videoClip.muted ? 'Mute' : 'Unmute';
+              videoClip.muted = videoClip.muted ? false : true;
+            }
+
+            function OnFinished() {
+              playButton.disabled = false;
+              pauseButton.disabled = true;
+            }
+
+            function addReflection() {
+              videoClip.style.webkitBoxReflect = videoClip.style.webkitBoxReflect !== '' ? '' : "below 0px -webkit-linear-gradient(top, transparent, transparent 55%, white) 0 0 0 0 stretch stretch";
+            }
+          </script>
+					
+					</section>
 				</section>
 				
 				</section>
