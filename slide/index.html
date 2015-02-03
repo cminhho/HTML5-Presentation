@@ -55,6 +55,13 @@
 		img{
 			max-width: 700px !important;
 		}
+		textarea, input, button{
+			border-radius: 0 !important;
+		}
+		.btn.btn-default {
+			font-size: 18px;
+			margin: 5px;
+		}
 		</style>
 	</head>
 
@@ -174,7 +181,7 @@
 						</aside>
 					</section>
 					
-					<section>
+					<section style="width: 1200px;margin-left: -150px;">
 						<h1 style="display: inline;">HTML5</h1>
 						<h2 style="display: inline;">~=</h2>
 						<h1 class="fragment visible" data-fragment-index="0" style="display: inline;">HTML</h1>
@@ -203,13 +210,13 @@
 				<section data-background="#1A8E3C">
 					<h2>Today, we will cover ...</h2>
 					<ol>
-						<li>Offline / Storage</li>
+						<li>Offline / Storage
+						<img src="img/" alt="" />
+						</li>
 						<li>Realtime / Communication</li>
 						<li>File / Hardware Access</li>
 						<li>Semantics & Markup</li>
-						<li>Graphucs / Multimedia</li>
-						<li>CSS3</li>
-						<li>Nuts & Bolts</li>
+						<li>Graphics / Multimedia</li>
 					</ol>
 				</section>
 
@@ -222,7 +229,8 @@
 					
 					<section data-state="customevent">
 						<h2>Web Storage</h2>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 //LocalStorage Methods: 
 //getItem: Retrieves the current value associated with the key.
 	window.localStorage.getItem(key)
@@ -240,7 +248,7 @@
 					</code></pre>
 					
 					<div>
-						<textarea style=" height: 100px; font-size: 30px;" type="text" class="form-control" id="ta-area" placeholder="Type your text here..."></textarea>
+						<textarea style=" height: 100px; font-size: 18px" type="text" class="form-control" id="ta-area" placeholder="Type your text here..."></textarea>
 					</div>
 					<div>
 						<button class="btn btn-default" id="saveButton">Save</button>
@@ -258,7 +266,8 @@
 					
 					<section data-state="customevent">
 						<h2>Web SQL Database</h2>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 var db = window.openDatabase("DBName", "1.0", "description", 5*1024*1024); //5MB
 db.transaction(function(tx) {
   tx.executeSql("SELECT * FROM test", [], successCallback, errorCallback);
@@ -266,7 +275,7 @@ db.transaction(function(tx) {
 						</code></pre>
 					
 					<div class="center" id="websqldb-example">
-						<textarea style=" height: 100px; font-size: 30px;" type="text" class="form-control" id="text-websqldb" placeholder="Type your text here..."></textarea>
+						<textarea style=" height: 100px; font-size: 18px;" type="text" class="form-control" id="text-websqldb" placeholder="Type your text here..."></textarea>
 						<div>
 							<button type="button" class="btn btn-default" onclick="webSqlSample.newRecord()">New to do item</button>
 							<button type="button" class="btn btn-default" onclick="webSqlSample.createTable()">Create table</button>
@@ -368,7 +377,8 @@ db.transaction(function(tx) {
 					
 					<section data-state="customevent">
 						<h2>IndexedDB</h2>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 var idbRequest = window.indexedDB.open('Database Name');
 idbRequest.onsuccess = function(event) {
   var db = event.srcElement.result;
@@ -379,8 +389,8 @@ idbRequest.onsuccess = function(event) {
 						</code></pre>
 					
 					<div class="center" id="indexeddb-example">
-						<input type="text" class="form-control" placeholder="key" id="idb-key" size="10" style=" height: 50px; font-size: 20px;"> 
-						<input type="text" class="form-control" placeholder="value" id="idb-value" size="15" style=" height: 50px; font-size: 20px;">
+						<input type="text" class="form-control" placeholder="key" id="idb-key" size="10" style=" height: 50px; font-size: 20px;margin-bottom: 15px"> 
+						<input type="text" class="form-control" placeholder="value" id="idb-value" size="15" style=" height: 50px; font-size: 20px; margin-bottom: 15px">
 						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbSet()">Set</button>
 						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbCreate()">Create objectStore</button>
 						<button type="button" class="btn btn-default" onclick="indexedDbSample.idbRemove()">Remove objectStore</button>
@@ -391,11 +401,11 @@ idbRequest.onsuccess = function(event) {
 					
 					<section data-state="customevent">
 						<h2>Application Cache</h2>
-						<pre><span>index.html</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>index.html</pre><pre><code data-trim contenteditable >
 < html manifest="cache.appcache" >
 						</code></pre>
 						
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre><pre><code data-trim contenteditable >
 window.applicationCache.addEventListener('updateready', function(e) {
   if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
     window.applicationCache.swapCache();
@@ -406,7 +416,7 @@ window.applicationCache.addEventListener('updateready', function(e) {
 }, false);
 						</code></pre>
 						
-						<pre><span>cache.appcache:</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>cache.appcache:</pre><pre><code data-trim contenteditable>
 CACHE MANIFEST
 # version 1.0.0
 
@@ -417,12 +427,12 @@ CACHE:
 
 NETWORK:
 *			</code></pre>
-					<span>Turn off your internet connection and refresh this page!  </span>
 					</section>
 					
 					<section>
 					<h2>Quota API</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+					<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 // Request Status
 webkitStorageInfo.queryUsageAndQuota(webkitStorageInfo.TEMPORARY, function(used, remaining) {
     console.log("Used quota: " + used + ", remaining quota: " + remaining);
@@ -453,13 +463,15 @@ webkitStorageInfo.requestQuota(webkitStorageInfo.PERSISTENT, 10 * 1024 * 1024, f
 					<!-- Web Workers -->
 					<section>
 						<h2>Web Workers</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 var worker = new Worker('task.js');
 worker.onmessage = function(event) { alert(event.data); };
 worker.postMessage('data');
-					</code></pre>	
+						</code></pre>	
 					
-						<pre><span>task.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>task.js</pre>
+						<pre><code data-trim contenteditable>
 self.onmessage = function(event) {
   // Do some work.
   self.postMessage("recv'd: " + event.data);
@@ -470,7 +482,8 @@ self.onmessage = function(event) {
 					<!-- WebSocket -->
 					<section>
 						<h2>WebSocket</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 var socket = new WebSocket('ws://html5rocks.websocket.org/echo');
 socket.onopen = function(event) {
   socket.send('Hello, WebSocket');
@@ -484,7 +497,8 @@ socket.onclose = function(event) { alert('closed'); }
 					<!-- Notifications -->
 					<section>
 						<h2>Notifications</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 if (window.webkitNotifications.checkPermission() == 0) {
   // you can pass any url as a parameter
   window.webkitNotifications.createNotification(tweet.picture, tweet.title,
@@ -509,7 +523,8 @@ if (window.webkitNotifications.checkPermission() == 0) {
 					<!-- Native Drag & Drop -->
 					<section>
 						<h2>Native Drag & Drop</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 document.addEventListener('dragstart', function(event) {
   event.dataTransfer.setData('text', 'Customized text');
   event.dataTransfer.effectAllowed = 'copy';
@@ -521,7 +536,8 @@ document.addEventListener('dragstart', function(event) {
 					<!-- Geolocation -->
 					<section>
 						<h2>Geolocation</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
     var latLng = new google.maps.LatLng(
@@ -572,12 +588,15 @@ if (navigator.geolocation) {
 					<!-- Audio + Video -->
 					<section>
 						<h2>Audio + Video</h2>
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
-<audio id="audio" src="sound.mp3" controls></audio>
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
+<audio id="audio" src="videos/sound.mp3" controls></audio>
 document.getElementById("audio").muted = false;
 						</code></pre>	
-						<pre><span>main.js</span><code data-trim contenteditable style="font-size: 18px; margin-top: 0px;">
-<video id="video" src="movie.webm" autoplay controls></video>
+						
+						<pre>main.js</pre>
+						<pre><code data-trim contenteditable>
+<video id="video" src="videos/movie.webm" autoplay controls></video>
 document.getElementById("video").play();
 						</code></pre>
 					
@@ -636,229 +655,207 @@ document.getElementById("video").play();
           </script>
 					
 					</section>
-				</section>
-				
-				</section>
-				
-				
-				<section data-state="customevent">
-					<section data-markdown>
-						<script type="text/template">
-							## Services
-							<p>Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.</p>
-							<!--<p>In AngularJS, everything has an associated scope. Scopes are organized in a hierarchy. There is a $rootScope object, the parent of all the scopes of the AngularJS application, and there are scopes created by some directives.</p>-->
-							
-						</script>
+					
+					<!-- Track Element -->
+					<section>
+						<h2>Track Element</h2>
+						<pre><code data-trim>
+<video width="390" id="clip" controls>
+  <source src="Google_Developer_Stories.webm"
+          type='video/webm; codecs="vp8, vorbis"' />
+  <track label="English subtitles" kind="subtitles" srclang="en"
+         src="video-subtitles-en.vtt" default />
+</video>
+						</code></pre>
+						
+						<div class="row">
+							<dir class="col-md-6">
+							<div id="video-column" class="center">
+							<video width="390" id="clip" class="playr_video" controls>
+							  <source src="videos/Google_Developer_Stories.webm" type='video/webm; codecs="vp8, vorbis"' />
+							  <track label="English subtitles" kind="subtitles" srclang="en" src="videos/video-subtitles-en.vtt" default />
+							  Your browser does not support the video tag
+							</video>
+							  </div>
+							</dir>
+							<dir class="col-md-6">
+							<div id="track-column" class="center">
+            <textarea style="font-size: 15px; font-family: monospace, courier; width: 380px; height: 250px; color: black" readonly="">WEBVTT FILE
+1
+00:00:00.500 --&gt; 00:00:02.000 D:vertical A:start
+The Web is always changing
+2
+00:00:02.500 --&gt; 00:00:04.300
+and the way we access it is changing
+3
+00:00:05.000 --&gt; 00:00:07.000
+The source of that change is &lt;c.highlight&gt;you&lt;/c&gt;
+
+00:00:07.100 --&gt; 00:00:11.000
+Developers all around the world who are using our tools to create great new things
+5
+00:00:11.200 --&gt; 00:00:13.200
+and with so many tools, the sky is the limit
+6
+00:00:14.500 --&gt; 00:00:16.500
+But it cant happen without you and your ideas
+7
+00:00:17.500 --&gt; 00:00:18.700
+We want to know you better
+8
+00:00:18.700 --&gt; 00:00:21.000
+so we created a new place just for that
+9
+00:00:21.000 --&gt; 00:00:22.000
+to hear from &lt;u&gt;you&lt;/u&gt;
+10
+00:00:22.500 --&gt; 00:00:25.000
+We want to hear what inspires you as a developer
+11
+00:00:25.500 --&gt; 00:00:27.000
+and how we can help.
+12
+00:00:27.000 --&gt; 00:00:30.800
+Here you can record a video, share stories with us and more
+13
+00:00:31.000 --&gt; 00:00:34.000
+Let us know what being a Google developer means to you
+14
+00:00:34.000 --&gt; 00:00:38.200
+and you can talk to us in person at Google Developer events all over the world.
+15
+00:00:38.500 --&gt; 00:00:41.000
+so we can learn how to support you better.
+16
+00:00:41.000 --&gt; 00:00:44.600
+Oh, btw, we also started rolling a new site for Google Developers
+17
+00:00:44.700 --&gt; 00:00:49.400
+Not just code but community, news, tools and other resources
+18
+00:00:49.400 --&gt; 00:00:51.000
+and cake
+19
+00:00:51.200 --&gt; 00:00:54.000
+Like any open source project it's a work in progress
+20
+00:00:54.100 --&gt; 00:00:57.000
+with your help it can be great
+21
+00:00:57.000 --&gt; 00:01:00.000 L:12%
+developers.google.com/stories
+21
+00:01:00.500 --&gt; 00:01:04.000
+Change is important to the Web. Help us keep changing it together
+            </textarea>
+          </div>
+							</dir>
+						</div>
 						
 					</section>
-					<section data-state="customevent">
-					<h2>Services</h2>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+				
+					<!-- FullScreen API -->
+					<section>
+						<h2>FullScreen API</h2>
+						<pre id="snippet"><code data-trim>
+if (elem.<b>webkitRequestFullScreen</b>) {
+  elem.<b>webkitRequestFullScreen</b>(Element.<em>ALLOW_KEYBOARD_INPUT</em>);
+} else if (elem.<b>mozRequestFullScreen</b>) {
+  elem.<b>mozRequestFullScreen</b>();
+} else if (elem.<b>requestFullScreen</b>){
+  elem.<b>requestFullScreen</b>();
+}
+</code></pre>
 
-<div data-ng-app="myServiceModule">
-    <div data-ng-controller="GreetingController">
-        {{callNotify()}}
-    </div>
-</div>
+<pre>
+<code data-trim>
+<b>:-webkit-full-screen-ancestor</b>:root {
+  overflow: hidden;
+}
+<b>:-webkit-full-screen-ancestor</b> {
+  z-index: auto;
+  -webkit-transform: none;
+  -webkit-transition: none;
+}
+pre<b>:-webkit-full-screen</b> {
+  background-color: white;
+}
+</code></pre>
 
-<script>
-angular.
- module('myServiceModule', []).
-  controller('MyController', ['$scope','notify', function ($scope, notify) {
-    $scope.callNotify = function(msg) {
-      notify(msg);
-    };
-  }]).
- factory('notify', ['$window', function(win) {
-    var msgs = [];
-    return function(msg) {
-      msgs.push(msg);
-      win.alert(msgs);
-      msgs = [];
-    };
-  }]);
-</script>
+        <div id="fs">
+          <button class="btn btn-default" id="slide-fs">Toggle slide fullscreen</button>
+          <button class="btn btn-default" id="snippet-fs">Toggle snippet fullscreen</button>
+          <div class="tohide"><small>close: 'ENTER' or 'ESC'</small></div>
+        </div>
+		<script>
+        document.cancelFullScreen = document.webkitCancelFullScreen || document.mozCancelFullScreen || document.exitFullscreen;
+
+        document.addEventListener('keydown', function(e) {
+          switch (e.keyCode) {
+            case 13: // ENTER. ESC should also take you out of fullscreen by default.
+              e.preventDefault();
+              document.cancelFullScreen();
+              break;
+          }
+        }, false);
+
+        function doFullScreen(elem) {
+          if (elem.webkitRequestFullScreen) {
+            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+          } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+          } else if (elem.requestFullScreen){
+            elem.requestFullScreen();
+          }
+        }
+
+        function onFullScreenChange() {
+          console.log("fullscreen change!");
+        };
 
 
-					</code></pre>
+        function enterFullscreen(elem) {
+          var elem = elem || document.body;
+          elem.onwebkitfullscreenchange = onFullScreenChange;
+          elem.onmozfullscreenchange = onFullScreenChange;
+          elem.onfullscreenchange = onFullScreenChange;
+          if (document.webkitIsFullScreen) {
+            document.cancelFullScreen();
+          } else {
+            doFullScreen(elem);
+          }
+        }
+
+        document.getElementById('slide-fs').onclick = function(e) { enterFullscreen(document.querySelector('.current')) };
+        document.getElementById('snippet-fs').onclick = function(e) { enterFullscreen(document.querySelector('#snippet')) };
+      </script>
+		
 					</section>
 					
-					
-				</section>
-				
-			
-				<section>
-					<section data-state="customevent">
-						<h2>Scope</h2>
-						<p>
-							Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of theapplication.
-						</p>
-					</section>
-					<section data-state="customevent">
-						<h2>Scope Hierarchies</h2>
-						<p>Each Angular application has exactly one root scope, but may have several child scopes.
-							<img src="img/concepts-scope.png"></img>
-						</p>
-					</section>
-				</section>
-
-				
-				
-				
-				<section data-markdown>
-					<script type="text/template">
-						## Module
-						<p>
-							You can think of a module as a container for the different parts of your app – controllers, services, ﬁlters, directives, etc.
-						</p>
-						<!--<ul>
-							<li>Modules define your applications.</li>
-							<li>All your controllers should belong to a module.</li>
-							<li>Modules keep the global namespace clean.</li>
-						</ul>-->
-						```
-						// declare a modulevar 
-						myAppModule = angular.module(myApp, [--here goes the dependent Modules--]);
-						```
-					</script>
-				</section>
-				
-				<section data-state="customevent">
-					<h2>Routing</h2>
-					<p class="fragment current-visible">
-						Is used for deep-linking URLs to controllers and views (HTML partials). It watches <code>$location.url()</code> andtries to map the path to an existing route definition.
-					</p>
-					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: -120px;">
-angular.module('myApp', [])
-.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/newcomer',{
-        templateUrl: 'views/newcomer/newcomer.html',
-        controller: 'newcomerCtrl'
-      })
-      .when('/newcomer/:id',{
-        templateUrl: 'views/report-table/report-table.html',
-        controller: 'reportCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  }])
-					</code></pre>
-				</section>
-				
-				<section>
-					<section data-state="customevent">
-						<h2>Forms</h2>
-						<p>
-							Controls (input, select, textarea) are ways for a user to enter data. A Form is a collection of controls for the purpose of grouping related controls together.
-						</p>
-					</section>
-					<!--<section data-state="customevent">
-						<h2>Scope Hierarchies</h2>
-						<p>Each Angular application has exactly one root scope, but may have several child scopes.
-							<img src="img/concepts-scope.png"></img>
-						</p>
-					</section>-->
-				</section>
-				
-				<section data-state="customevent">
-					<h2>Dependency Injection</h2>
-					<p>
-						Dependency Injection (DI) is a software design pattern that deals with how code gets holdof its dependencies.
-					</p>
-					<pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-<div ng-app="myApp" ng-controller="myCtrl">
-  {{ firstName + " " + lastName }}
-</div>
+					<!-- Canvas 2D -->
+					<section>
+						<h2>Canvas 2D</h2>
+						<pre id="snippet"><code data-trim>
+<canvas id="canvas" width="838" height="220"></canvas>
 
 <script>
-  (function(){
-    'use strict';
-    angular.module('myApp',[]);
+  var canvasContext = document.getElementById("canvas").getContext("2d");
+  canvasContext.fillRect(250, 25, 150, 100);
 
-    .controller('myCtrl', ['$scope', function($scope) {
-      $scope.firstName = "John";
-      $scope.lastName = "Doe";
-    }]);
-  })();
+  canvasContext.beginPath();
+  canvasContext.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+  canvasContext.lineWidth = 15;
+  canvasContext.lineCap = 'round';
+  canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+  canvasContext.stroke();
 </script>
-
-<script src="..lib/angular.min.js"></script>
-
-
-					</code></pre>
-				</section>
-				
-				<section data-state="customevent">
-				<section>
-					<h2>Filters</h2>
-					<p>
-						AngularJS filters can be used to transform data:
-					</p>
-					<table class="reference">
-<tbody><tr>
-	<th style="width:20%">Filter</th>
-	<th>Description</th>
-</tr>
-<tr>
-	<td>currency</td>
-	<td>Format a number to a currency format.</td>
-</tr>
-<tr>
-	<td>filter</td>
-	<td>Select a subset of items from an array.</td>
-</tr>
-<tr>
-	<td>lowercase</td>
-	<td>Format a string to lower case.</td>
-</tr>
-<tr>
-	<td>orderBy</td>
-	<td>Orders an array by an expression.</td>
-</tr>
-<tr>
-	<td>uppercase</td>
-	<td>Format a string to upper case.</td>
-</tr>
-</tbody></table>
+</code></pre>
 
 					</section>
-					<section data-background-transition="slide">
-					<h2>Filters</h2>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-<div ng-app="" ng-controller="namesController">
-    <p><input type="text" ng-model="name"></p>
-    <ul>
-        <li ng-repeat="x in names | filter:name | orderBy:'country'">
-            {{ (x.name | uppercase) + ', ' + x.country }}
-        </li>
-    </ul>
-</div>
-
-<script>
-  function namesController($scope) {
-    $scope.names = [
-      {name:'Jani',country:'Norway'},
-      {name:'Hege',country:'Sweden'},
-      {name:'Kai',country:'Denmark'}
-    ];
-  }
-</script>
-
-
-					</code></pre>
-					</section>
+				
 				</section>
 				
-				<!--
-				<section>
+				<!-- <section>
 					<section data-background="#007777">
 						<h2>Slide Backgrounds</h2>
 						<p>
@@ -877,21 +874,21 @@ angular.module('myApp', [])
 						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
 					</section>
 				</section>
-
+				
 				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
 					<h2>Resources</h2>
 					<p>
 						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
 					</p>
 				</section>
-
+				
 				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
 					<h2>Background Transition Override</h2>
 					<p>
 						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
 					</p>
 				</section>
-
+				
 				<section>
 					<h2>Clever Quotes</h2>
 					<p>
@@ -903,7 +900,7 @@ angular.module('myApp', [])
 						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
 					</blockquote>
 				</section>
-
+				
 				<section>
 					<section id="fragments">
 						<h2>Fragmented Views</h2>
@@ -914,7 +911,7 @@ angular.module('myApp', [])
 							<li class="fragment"><em>of view</em></li>
 							<li class="fragment"><strong>fragments</strong></li>
 						</ol>
-
+				
 						<aside class="notes">
 							This slide has fragments which are also stepped through in the notes window.
 						</aside>
@@ -933,8 +930,7 @@ angular.module('myApp', [])
 						<p class="fragment highlight-current-blue">highlight-current-blue</p>
 					</section>
 				</section>
-
-
+				
 				<section>
 					<h2>Export to PDF</h2>
 					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
@@ -942,8 +938,8 @@ angular.module('myApp', [])
 					<script>
 						document.getElementById('slideshare').attributeName = 'allowfullscreen';
 					</script>
-				</section>-->
-
+				</section>
+				
 				<section>
 					<h2>Videos</h2>
 					<ul >
@@ -995,7 +991,7 @@ angular.module('myApp', [])
 						<li><a href="http://www.jetbrains.com/webstorm/">Webstorm</a></li>
 					</ul>
 				</section>
-
+				 -->
 				<section>
 					<h1>THE END</h1>
 					<h3>BY HMCHUNG / TMA</h3>
