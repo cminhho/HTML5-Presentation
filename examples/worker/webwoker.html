@@ -5,26 +5,34 @@
 <p>Count numbers: <output id="result"></output></p>
 <button onclick="startWorker()">Start Worker</button> 
 <button onclick="stopWorker()">Stop Worker</button>
+<button onclick="testWorker()">Test</button>
 <br><br>
 
 <script>
 var w;
 
 function startWorker() {
-   	var i = 0;
-	
-	while(i<10000){
-		setTimeout(function timeCount(){
-			i++;
-			document.getElementById('result').innerHTML = i;
-			
-		}, 500);
-	}
+
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("workers.js");
+        }
+
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    }
 }
 
 function stopWorker() { 
     w.terminate();
     w = undefined;
+}
+
+function testWorker(){
+	alert("You can do anything")
 }
 </script>
 

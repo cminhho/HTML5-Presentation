@@ -6,7 +6,13 @@ db = window.openDatabase('DBName', '1.0', 'description', 5*1024*1024, function(d
 }); //5MB
 
 <!-- create table -->
-
+db.transaction(function(tx) {
+	tx.executeSql("CREATE TABLE Employee (id REAL UNIQUE, text TEXT)", [],
+		function(tx) {  
+			log.innerHTML = '<p>"Employee" created!</p>' },onError);
+		}
+	);
+}
 
 
 db.transaction(function(tx) {
