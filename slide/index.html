@@ -168,6 +168,7 @@
 				
 				<!-- What is HTML5? -->
 				<section data-background="#73255B" data-color="#000000">
+					<!-- What is HTML5? -->
 					<section>
 						<h2>What is HTML5?</h2>
 						<ol>
@@ -188,6 +189,36 @@
 						<h1 class="fragment visible" data-fragment-index="1" style="display: inline;"> + CSS</h1>
 						<h1 class="fragment visible" data-fragment-index="2" style="display: inline;"> + JS</h1>
 					</section>
+				
+					<section>
+						<!-- Definition and Usage -->
+						<h2>Definition and Usage</h2>
+						<h3 style="text-align: left;">
+							<font color="#fa0">HTML5</font>
+						</h3>
+						<pre><code data-trim contenteditable>< !DOCTYPE HTML></code></pre>
+						<hr />
+						<h4 style="text-align: left;">
+							<font color="#ffffff">HTML 4.01 Strict</font>
+						</h4>
+						<pre><code data-trim>
+						< !DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+						</code></pre>
+						
+						<h4 style="text-align: left;">
+							<font color="#ffffff">HTML 4.01 Transitional</font>
+						</h4>
+						<pre><code data-trim>
+						< !DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+						</code></pre>
+						
+						<h4 style="text-align: left;">
+							<font color="#ffffff">HTML 4.01 Frameset</font>
+						</h4>
+						<pre><code data-trim>
+						< !DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+						</code></pre>
+					</section>
 				</section>
 
 				<!-- Key Features of HTML5 -->
@@ -207,17 +238,62 @@
 				</section>
 
 				<!-- Today, we will cover -->
-				<section data-background="#1A8E3C">
-					<h2>Today, we will cover ...</h2>
-					<ol>
-						<li>Offline / Storage
-						<img src="img/" alt="" />
-						</li>
-						<li>Realtime / Communication</li>
-						<li>File / Hardware Access</li>
-						<li>Semantics & Markup</li>
-						<li>Graphics / Multimedia</li>
-					</ol>
+				<section data-background="#1A8E3C" style="width: 1500px !important; margin-left: -300px; margin-top: -10px">
+					<section>
+						<h2>Today, we will cover...</h2>
+						<h3><ol>
+							<li>Multimedia</li>
+							<li>Realtime / Communication</li>
+							<li>File / Hardware Access</li>
+							<li>Semantics & Markup</li>
+							<li>Graphics / Multimedia</li>
+						</ol></h3>
+					</section>
+					<section>
+						<h2 style="color: #fa0">Today, we will cover ...</h2>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-4">
+								<h3>Offline / Storage</h3>
+									<img src="img/html5-offline.jpg" alt=""/>
+								</div>
+								<div class="col-md-4">
+									<h3>Realtime / Communication</h3>
+									<img src="img/html5-connectivity.jpg" alt="" />
+								</div>
+								<div class="col-md-4">
+									<h3>File / Hardware Access</h3>
+									<img src="img/html5-device.jpg" alt="" />
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2 style="color: #fa0">Today, we will cover ...</h2>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-4">
+								<h3>Semantics & Markup</h3>
+									<img src="img/sementic.png" alt=""/>
+								</div>
+								<div class="col-md-4">
+									<h3>Graphics / Multimedia</h3>
+									<img src="img/html5-3d.jpg" alt="" />
+								</div>
+								<div class="col-md-4">
+									<h3>CSS3</h3>
+									<img src="img/html5-device.jpg" alt="" />
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- <ol>
+						<li><h3>Offline / Storage</h3></li>
+						<li><h3>Realtime / Communication</h3></li>
+						<li><h3>File / Hardware Access</h3></li>
+						<li><h3>Semantics & Markup</h3></li>
+						<li><h3>Graphics / Multimedia</h3></li>
+					</ol> -->
 				</section>
 
 				<!-- Offline / Storage -->
@@ -267,15 +343,29 @@
 					<section data-state="customevent">
 						<h2>Web SQL Database</h2>
 						<pre>main.js</pre>
-						<pre><code data-trim contenteditable>
-var db = window.openDatabase("DBName", "1.0", "description", 5*1024*1024); //5MB
+						<pre><code data-trim>
+// Creating and Opening a Database						
+var db = window.openDatabase("DBTest", "1.0", "HTML5 Database API", '200000');
 db.transaction(function(tx) {
+  // Executing SQL Statements
   tx.executeSql("SELECT * FROM test", [], successCallback, errorCallback);
+  
+  // Creating table
+  tx.executeSql("CREATE TABLE Employee (id REAL UNIQUE, text TEXT)", [], function(tx) {
+    log.innerHTML = '<p>"Employee" created!</p>' },onError);
+  });
+  
+  // Accessing  SQL Statements
+  tx.executeSql("INSERT INTO Employee (id, text) VALUES (?, ?)", [number, "Value"],function(tx, result) {},onError);
+  
+  tx.executeSql("SELECT * FROM Employee", [], function(tx, result) {
+    // TODO
+  });
 });
 						</code></pre>
 					
 					<div class="center" id="websqldb-example">
-						<textarea style=" height: 100px; font-size: 18px;" type="text" class="form-control" id="text-websqldb" placeholder="Type your text here..."></textarea>
+						<textarea style=" height: 80px; font-size: 18px;" type="text" class="form-control" id="text-websqldb" placeholder="Type your text here..."></textarea>
 						<div>
 							<button type="button" class="btn btn-default" onclick="webSqlSample.newRecord()">New to do item</button>
 							<button type="button" class="btn btn-default" onclick="webSqlSample.createTable()">Create table</button>
