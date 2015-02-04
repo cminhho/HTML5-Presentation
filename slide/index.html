@@ -273,12 +273,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="col-md-4">
-								<h3>Semantics & Markup</h3>
-									<img src="img/sementic.png" alt=""/>
-								</div>
-								<div class="col-md-4">
 									<h3>Graphics / Multimedia</h3>
 									<img src="img/html5-3d.jpg" alt="" />
+								</div>
+								<div class="col-md-4">
+									<h3>Semantics & Markup</h3>
+									<img src="img/html5-code2.jpg" alt="" width="420"/>
 								</div>
 								<div class="col-md-4">
 									<h3>CSS3</h3>
@@ -617,7 +617,8 @@ socket.onopen = function(event) {
 };
 socket.onmessage = function(event) { alert(event.data); }
 socket.onclose = function(event) { alert('closed'); }
-					</code></pre>	
+					</code></pre>
+					<pre>https://www.websocket.org/echo.html</pre>
 					
 					</section>
 					
@@ -731,6 +732,7 @@ if (navigator.geolocation) {
 }
 					</code></pre>	
 					<article class="row" id="geoLocation"></article>
+					<pre>https://developers.google.com/maps/documentation/javascript/examples/map-geolocation</pre>
 					<button class="btn btn-default" id="see-position" onclick="showPosition()">Show Position</button>
 					<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script>
@@ -795,6 +797,7 @@ if (navigator.geolocation) {
 								<p>HTML5</p>
 								<img src="img/website-code-html5-optimized.jpg" alt="" />
 							</div>
+							<pre>http://www.w3schools.com/html/html5_semantic_elements.asp</pre>
 						</div>
 						
 					</section>
@@ -813,13 +816,13 @@ if (navigator.geolocation) {
 						<h2>Audio + Video</h2>
 						<pre>main.js</pre>
 						<pre><code data-trim contenteditable>
-<audio id="audio" src="videos/sound.mp3" controls></audio>
+<audio id="audio" src="videos/Google_Developer_Stories.webm" controls></audio>
 document.getElementById("audio").muted = false;
 						</code></pre>	
 						
 						<pre>main.js</pre>
 						<pre><code data-trim contenteditable>
-<video id="video" src="videos/movie.webm" autoplay controls></video>
+<video id="video" src="videos/Google_Developer_Stories.webm" autoplay controls></video>
 document.getElementById("video").play();
 						</code></pre>
 					
@@ -835,9 +838,9 @@ document.getElementById("video").play();
 							 </div>
 							 <div class="col-md-6">
 								<video width="390" id="clip" controls="">
-								<source src="img/chrome_japan.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
-								<source src="img/chrome_japan.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
-								<source src="img/chrome_japan.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;">
+								<source src="videos/Google_Developer_Stories.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+								<source src="videos/Google_Developer_Stories.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+								<source src="videos/Google_Developer_Stories" type="video/ogg; codecs=&quot;theora, vorbis&quot;">
 								Your browser does not support the video tag
 							  </video>
 							 </div>
@@ -884,10 +887,10 @@ document.getElementById("video").play();
 						<h2>Track Element</h2>
 						<pre><code data-trim>
 <video width="390" id="clip" controls>
-  <source src="Google_Developer_Stories.webm"
+  <source src="videos/Google_Developer_Stories.webm"
           type='video/webm; codecs="vp8, vorbis"' />
   <track label="English subtitles" kind="subtitles" srclang="en"
-         src="video-subtitles-en.vtt" default />
+         src="videos/video-subtitles-en.vtt" default />
 </video>
 						</code></pre>
 						
