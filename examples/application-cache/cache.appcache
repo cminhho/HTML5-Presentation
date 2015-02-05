@@ -1,10 +1,12 @@
 ﻿CACHE MANIFEST
-# 2015-02-21 v1.0.0
+# 2015-02-5 v1.0.0
 
 CACHE:
-http://developer.ibm.com/mobilefirstplatform/wp-content/uploads/sites/32/2014/07/06_02_cache_table.png
+index.html
+HTML5-logo.png
 
 NETWORK:
-
+login.html
 
 FALLBACK:
+offline.html

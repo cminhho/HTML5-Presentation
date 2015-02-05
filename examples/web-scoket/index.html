@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat Client</title>
+	<script type="text/javascript">
+	(function(){
+		var socket = new WebSocket("ws://localhost:9090");
+		socket.addEventListener("message", function(evtArg){
+			document.getElementById("divMessages").innerHTML += evtArg.data + "<br/>";
+		});
+		window.addEventListener("DOMContentLoaded", init);
+		function init(){
+			document.getElementById("btnSend").addEventListener("click", function(){
+				var msg = document.getElementById("txtMessage").value;
+				socket.send(msg);
+			});
+		}
+	})();
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="txtMessage">
+	<input type="button" value="Send" id="btnSend">
+	<div id="divMessages"></div>
+</body>
+</html>

@@ -15,9 +15,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		
 		<link rel="stylesheet" href="css/reveal.min.css">
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 		
 		<!-- For syntax highlighting -->
@@ -116,55 +117,65 @@
 				</section>
 				
 				<!-- Rough Timeline of Web Technologies -->
-				<section data-background="#161E3F">
+				<section data-background="#ffbf00">
 					<h2>Rough Timeline of Web Technologies</h2>
-					<table>
-						<thead>
-							<tr>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1991</td>
-								<td>HTML</td>
-							</tr>
-							<tr>
-								<td>1994</td>
-								<td>HTML 2</td>
-							</tr>
-							<tr>
-								<td>1996</td>
-								<td>CSS + JavaScript</td>
-							</tr>
-							<tr>
-								<td>1997</td>
-								<td>HTML 4</td>
-							</tr>
-							<tr>
-								<td>1998</td>
-								<td>CSS2</td>
-							</tr>
-							<tr>
-								<td>2000</td>
-								<td>XHTML 1</td>
-							</tr>
-							<tr>
-								<td>2002</td>
-								<td>Tableless Web Design</td>
-							</tr>
-							<tr>
-								<td>2005</td>
-								<td>AJAX</td>
-							</tr>
-							<tr>
-								<td>2009</td>
-								<td>HTML5 + CSS3</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
+					<div class="row">
+						<div class="col-md-6">
+							<table width="450" style="color: black">
+								<thead>
+									<tr>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1991</td>
+										<td>HTML</td>
+									</tr>
+									<tr>
+										<td>1994</td>
+										<td>HTML 2</td>
+									</tr>
+									<tr>
+										<td>1996</td>
+										<td>CSS + JavaScript</td>
+									</tr>
+									<tr>
+										<td>1997</td>
+										<td>HTML 4</td>
+									</tr>
+									<tr>
+										<td>1998</td>
+										<td>CSS2</td>
+									</tr>
+									<tr>
+										<td>2000</td>
+										<td>XHTML 1</td>
+									</tr>
+									<tr>
+										<td>2002</td>
+										<td>Tableless Web Design</td>
+									</tr>
+									<tr>
+										<td>2005</td>
+										<td>AJAX</td>
+									</tr>
+									<tr style="font-weight: bold; font-size: 40px">
+										<td><span style="color: #151E3E; font-weight: bold">2009</span></td>
+										<td>
+											<span style="color: #E54D26;">HTML5 + </span>
+											<span style="color: #0070BA;">CSS3</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-6">
+							<img src="img/html5css3.png" alt="" style="border: none; background: none; box-shadow: none"/>
+						</div>
+					</div>
+					</section>
 				
 				<!-- What is HTML5? -->
 				<section data-background="#73255B" data-color="#000000">
@@ -670,7 +681,10 @@ document.addEventListener('DOMContentLoaded',function(){
 					
 					<!-- Native Drag & Drop -->
 					<section>
-						<h2>Native Drag & Drop</h2>
+						<h2 style="margin-top: -50px">Native Drag & Drop</h2>
+						<pre>index.html</pre>
+						<pre><code><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img id="drag1" src="img/html5_logo_lrg.png" draggable="true" ondragstart="drag(event)">								</div></code></pre>
 						<pre>main.js</pre>
 						<pre><code>
 function allowDrop(ev) {
@@ -689,7 +703,7 @@ function drop(ev) {
 					</code></pre>
 					<div class="row">
 						<div class="col-md-6">
-							<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+							<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 						</div>
 						<div class="col-md-6">
 							<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -697,7 +711,7 @@ function drop(ev) {
 							</div>
 						</div>
 					</div>
-					<style type="text/css">#div1 {height:170px;padding:10px;border:1px solid #aaaaaa;}</style>
+					<style type="text/css">#div1, #div2 {height:170px;padding:10px;border:1px solid #aaaaaa;}</style>
 					
 					
 					<script type="text/javascript">
@@ -706,16 +720,67 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+  ev.dataTransfer.setData("logo", ev.target.id);
 }
 
 function drop(ev) {
   ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
+  var data = ev.dataTransfer.getData("logo");
   ev.target.appendChild(document.getElementById(data));
 }
 					</script>	
 					</section>
+					
+					<!-- Desktop Drag-In (File API) -->
+					<section>
+						<h2 style="margin-top: -50px">Desktop Drag-In (File API)</h2>
+						<pre>main.js</pre>
+						<pre><code>
+document.querySelector('#dropzone').addEventListener('drop', function(e) {
+  var reader = new FileReader();
+  reader.onload = function(evt) {
+    document.querySelector('img').src = evt.target.result;
+  };
+
+  reader.readAsDataURL(e.dataTransfer.files[0]);
+}, false);
+					</code></pre>
+					<style type="text/css">
+
+div.example {
+display: block;
+padding: 10px 20px;
+color: black;
+background: rgba(255, 255, 255, 0.4);
+border-radius: 8px;
+margin-bottom: 10px;
+border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.center {
+text-align: center;
+}
+#dropzone {
+height: 150px;
+width: 100%;
+border-radius: 10px;
+border: 2px dashed #0687FF;
+}
+					</style>
+					<div class="example">
+					  <div id="dropzone" class="vbox boxcenter center">
+						Drop in images from your desktop
+					  </div>
+					</div>
+					<div id="dnd-thumbnails" class="center"></div>
+					<script src="js/dnd-lib.js" defer=""></script>
+					<script defer="">
+					  window.addEventListener('load', function(e) {
+						var dndc = new DNDFileController('dropzone', 'dnd-thumbnails');
+					  }, false);
+					</script>
+						
+					</section>
+					
 					
 					<!-- Geolocation -->
 					<section>
@@ -801,6 +866,127 @@ if (navigator.geolocation) {
 						</div>
 						
 					</section>
+
+					<!-- Markup for applications -->
+					<section>
+					<h2>Markup for applications</h2>
+					<pre>http://www.w3schools.com/html/html5_new_elements.asp</pre>
+					<pre><code data-trim>
+<input list="cars"/>
+<datalist id="cars">
+  <option value="BMW"/>
+  <option value="Ford"/>
+  <option value="Volvo"/>
+</datalist>
+					</code></pre>
+<input list="cars"  class="form-control"/>
+<datalist id="cars">
+  <option value="BMW"/>
+  <option value="Ford"/>
+  <option value="Volvo"/>
+</datalist>
+					<pre><code data-trim>
+<details>
+  <summary>HTML 5</summary>
+  This slide deck teaches you everything you need to know about HTML 5.
+</details>
+					</code></pre>
+<details>
+  <summary>HTML 5</summary>
+  This slide deck teaches you everything you need to know about HTML 5.
+</details>					
+					
+					
+					<pre><code data-trim>
+						<meter min="0" max="100" low="40" high="90" optimum="100" value="91">A+</meter>
+					</code></pre>	
+					Your score is: <meter min="0" max="100" low="40" high="90" optimum="100" value="91">A+</meter>
+					
+					<pre><code data-trim>
+						Your score is: <progress>working...</progress>
+					</code></pre>	
+					Download is: <progress>working...</progress>
+					
+					<pre><code data-trim>
+						<progress>working...</progress>
+					</code></pre>	
+					Goal is: <progress value="75" max="100">3/4 complete</progress>
+					
+					</section>
+					
+					<!-- Descriptive link relations -->
+					<section>
+						<h2>Descriptive link relations</h2>
+						<pre><code data-trim>
+						<pre>index.html</pre>
+<link rel="alternate" type="application/rss+xml" href="http://myblog.com/feed"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="pingback" href="http://myblog.com/xmlrpc.php"/>
+<link rel="prefetch" href="http://myblog.com/main.php"/>
+...
+
+<a rel="archives" href="http://myblog.com/archives">old posts</a>
+<a rel="external" href="http://notmysite.com">tutorial</a>
+<a rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">license</a>
+<a rel="nofollow" href="http://notmysite.com/sample">wannabe</a>
+<a rel="tag" href="http://myblog.com/category/games">games posts</a>
+						</code></pre>
+						<pre>http://en.wikipedia.org/wiki/Link_relation</pre>
+					</section>
+					
+					<!-- Microdata -->
+					<section>
+						<h2>Microdata</h2>
+						<pre><code data-trim>
+						<pre>index.html</pre>
+<div itemscope itemtype="http://example.org/band">
+ <p>My name is <span itemprop="name">Neil</span>.</p>
+ <p>My band is called <span itemprop="band">Four Parts Water</span>.</p>
+ <p>I am <span itemprop="nationality">British</span>.</p>
+</div>
+						</code></pre>
+						
+						<img src="img/Rich-Snippets-Testing-Tool.png" alt="" />
+						<pre>Rich Snippets Testing Tool at http://www.google.com/webmasters/tools/richsnippet</pre>
+					</section>
+					
+					<!-- New form types -->
+					<section>
+						<h2>New form types</h2>
+						<pre><code data-trim>
+<input type="text" required />
+<input type="email" value="some@email.com" />
+<input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14"/>
+<input type="range" min="0" max="50" value="10" />
+<input type="search" results="10" placeholder="Search..." />
+<input type="tel"  placeholder="(555) 555-5555"
+         pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" />
+<input type="color" placeholder="e.g. #bbbbbb" />
+<input type="number" step="1" min="-5" max="10" value="0" />
+						</code></pre>
+
+<div class="row">
+	<div class="col-md-3">
+		<input type="text" required class="form-control"/>
+		<input type="email" value="some@email.com" class="form-control" />
+	</div>
+	<div class="col-md-3">
+		<input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14" class="form-control"/>
+		<input type="range" min="0" max="50" value="10" class="form-control" />
+	</div>
+	<div class="col-md-3">
+		<input type="search" results="10" placeholder="Search..." class="form-control" />
+	<input type="tel"  placeholder="(555) 555-5555"
+         pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" class="form-control" />
+	</div>
+	<div class="col-md-3">
+		<input type="color" placeholder="e.g. #bbbbbb"  class="form-control"/>
+		<input type="number" step="1" min="-5" max="10" value="0"  class="form-control"/>
+	</div>
+</div>						
+
+					</section>
+					
 				</section>
 
 				<!-- Graphics / Multimedia -->
@@ -984,26 +1170,26 @@ Change is important to the Web. Help us keep changing it together
 					<section>
 						<h2>FullScreen API</h2>
 						<pre id="snippet"><code data-trim>
-if (elem.<b>webkitRequestFullScreen</b>) {
-  elem.<b>webkitRequestFullScreen</b>(Element.<em>ALLOW_KEYBOARD_INPUT</em>);
-} else if (elem.<b>mozRequestFullScreen</b>) {
-  elem.<b>mozRequestFullScreen</b>();
-} else if (elem.<b>requestFullScreen</b>){
-  elem.<b>requestFullScreen</b>();
+if (elem.webkitRequestFullScreen) {
+  elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+} else if (elem.mozRequestFullScreen) {
+  elem.mozRequestFullScreen();
+} else if (elem.requestFullScreen){
+  elem.requestFullScreen();
 }
 </code></pre>
 
 <pre>
 <code data-trim>
-<b>:-webkit-full-screen-ancestor</b>:root {
+:-webkit-full-screen-ancestor:root {
   overflow: hidden;
 }
-<b>:-webkit-full-screen-ancestor</b> {
+:-webkit-full-screen-ancestor {
   z-index: auto;
   -webkit-transform: none;
   -webkit-transition: none;
 }
-pre<b>:-webkit-full-screen</b> {
+pre:-webkit-full-screen {
   background-color: white;
 }
 </code></pre>
@@ -1011,6 +1197,7 @@ pre<b>:-webkit-full-screen</b> {
         <div id="fs">
           <button class="btn btn-default" id="slide-fs">Toggle slide fullscreen</button>
           <button class="btn btn-default" id="snippet-fs">Toggle snippet fullscreen</button>
+		  <button class="btn btn-default" id="snippet-test" onclick="launchFullscreen(document.documentElement);">Test</button>
           <div class="tohide"><small>close: 'ENTER' or 'ESC'</small></div>
         </div>
 		<script>
@@ -1077,8 +1264,35 @@ pre<b>:-webkit-full-screen</b> {
 </script>
 </code></pre>
 
+<canvas id="canvas-area" width="838" height="225"></canvas>
+<pre>http://www.html5canvastutorials.com/</pre>
+<pre>http://cheatsheetworld.com/programming/html5-canvas-cheat-sheet/</pre>
+
+<script defer="">
+              var canvasContext = document.getElementById("canvas-area").getContext("2d");
+              canvasContext.fillRect(250, 25, 150, 100);
+              canvasContext.beginPath();
+              canvasContext.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2, false);
+              canvasContext.lineWidth = 15;
+              canvasContext.lineCap = 'round';
+              canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+              canvasContext.stroke();
+            </script>
 					</section>
 				
+					<!-- Canvas 3D (WebGL) -->
+					<section>
+						<h2>Canvas 3D (WebGL)</h2>
+						<pre>https://playcanvas.com/play</pre>
+						<pre><code data-trim>
+<canvas id="canvas" width="838" height="220"></canvas>
+<script>
+  var gl = document.getElementById("canvas").getContext("experimental-webgl");
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  ...
+</script>
+						</code></pre>
+					</section>
 				</section>
 				
 				<!-- <section>
@@ -1198,26 +1412,21 @@ pre<b>:-webkit-full-screen</b> {
 						<li>Thinkster.io - A better way to learn AngularJS: <a href="">http://www.thinkster.io/</a></li>
 					</ul>
 				</section>
-				
+				-->
 				<section>
-					<h2>Development Environment</h2>
+					<h2>Resources</h2>
 					<ul style="float:left">
-						<li><a href="http://nodejs.org/">NodeJS</a>(server)</li>
-						<li><a href="http://bower.io/">Bower</a></li>
-						<li><a href="http://yeoman.io/">Yaomen</a></li>
-						<li><a href="http://gruntjs.com/">GruntJS</a></li>
-						<li><a href="https://angularjs.org/">AngularJS</a></li>
-						<li><a href="http://learnboost.github.io/stylus/">Stylus</a></li>
+						<li><a href="http://www.w3.org/html/wg/drafts/html/master/">www.w3.org</a></li>
+						<li><a href="http://www.w3schools.com/html/html5_intro.asp">www.w3schools.com</a></li>
+						<li><a href="http://www.html5rocks.com/">www.html5rocks.com</a></li>
 					</ul>
 					<ul style="float:right" start="10">
-						<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-						<li><a href="http://getbootstrap.com/">Karma</a>(unit test runnter)</li>
-						<li><a href="http://getbootstrap.com/">Internet browsers</a></li>
-						<li><a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en">Chrome add-on: batarang</a></li>
-						<li><a href="http://www.jetbrains.com/webstorm/">Webstorm</a></li>
+						<li><a href="https://html5test.com/">html5test.com</a></li>
+						<li><a href="http://html5demos.com/">html5demos.com</a></li>
+						<li><a href="http://html5doctor.com/">html5doctor.com</a></li>
 					</ul>
 				</section>
-				 -->
+				 
 				<section>
 					<h1>THE END</h1>
 					<h3>BY HMCHUNG / TMA</h3>
