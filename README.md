@@ -7,7 +7,7 @@
  + IndexedDB
  + Application Cache
  + Quota API
-#Realtime / Communication
+# Realtime / Communication
  + Web Workers
  + WebSocket
  + Notifications
