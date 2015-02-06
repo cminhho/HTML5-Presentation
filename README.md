@@ -1,4 +1,5 @@
-#HTML5 Presentation
+# HTML5 Presentation [![Build Status]
+
 #Rough Timeline of Web Technologies
 #What is the HTML5
 #Offline / Storage
@@ -7,7 +8,7 @@
  + IndexedDB
  + Application Cache
  + Quota API
-# Realtime / Communication
+#Realtime / Communication
  + Web Workers
  + WebSocket
  + Notifications
