@@ -1,5 +1,7 @@
 # HTML5 Presentation
 
+![HTML5 Presentation](https://github.com/cminhho/HTML5-Presentation/blob/master/screenshot.png)
+
 ### Rough Timeline of Web Technologies
 
 ### What is the HTML5
