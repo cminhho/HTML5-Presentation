@@ -1,12 +1,16 @@
+
+#Offline / Storage
  - Web Storage
  - Web SQL Databases
  - IndexedDB
  - Application Cache
  - Quota API
+ 
 ## Realtime / Communication
  - Web Workers
  - WebSocket
  - Notifications
+ 
 ## File / Hardware Access
  - Native Drag & Drop
  - Desktop Drag-In (File API)
@@ -15,6 +19,7 @@
  - Geolocation (cần)
  - Device Orientation (sơ sơ - demo)
  - Speech Input (demo)
+ 
 ## Semantics & Markup
  - Better semantic tags
  - Markup for application
