@@ -1,6 +1,6 @@
 # HTML5 Presentation
 
-![HTML5 Presentation](https://github.com/cminhho/HTML5-Presentation/blob/master/screenshot.png)
+![HTML5 Presentation](https://github.com/cminhho/HTML5-Presentation/blob/master/screenshot_0.0.0.png)
 
 ### Rough Timeline of Web Technologies
 
