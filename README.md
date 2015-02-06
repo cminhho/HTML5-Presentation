@@ -1,4 +1,4 @@
-# HTML5 Presentation [![Build Status]
+# HTML5 Presentation [![Build Status]]
 
 #Rough Timeline of Web Technologies
 #What is the HTML5
