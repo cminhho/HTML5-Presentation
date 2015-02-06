@@ -1,5 +1,5 @@
 # HTML5 Presentation
-
+![Chrome Print Settings](https://s3.amazonaws.com/hakim-static/reveal-js/pdf-print-settings.png)
 ### Rough Timeline of Web Technologies
 
 ### What is the HTML5
