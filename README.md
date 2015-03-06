@@ -68,3 +68,5 @@
  - Custom data-* attributes
  - Element.classList
  - History API
+
+# kickstarter for [HTML5](https://github.com/cminhho/html5-boilerplate) projects.
